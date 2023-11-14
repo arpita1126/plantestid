@@ -1,4 +1,31 @@
-<!-- <p>{{ result | json }}</p> -->
+<div class="container">
+  <h1>Result</h1>
+  <div class="img-cont">
+    <img [src]="result.input.images[0]" alt="" class="searched-img my-1" />
+  </div>
+  <hr style="width: 100%" />
 
-<input type="file" (change)="onFileChange($event)" />
-<button (click)="uploadFile()">Upload</button>
+  <div class="result">
+    <div class="col">
+      <h4>Plant Name</h4>
+    </div>
+    <div class="col">
+      <h4>Prabability</h4>
+    </div>
+  </div>
+  <hr style="width: 100%" />
+  <div class="res-container">
+    <ng-container *ngFor="let file of result.result.classification.suggestions">
+      <div class="result">
+        <div class="col">
+          {{ file.name }}
+        </div>
+        <div class="col">
+          {{ roundProbability(file.probability * 100) }}{{ "%" }}
+        </div>
+      </div>
+    </ng-container>
+    <hr />
+  </div>
+  <button (click)="routetofiles()">Try Another</button>
+</div>

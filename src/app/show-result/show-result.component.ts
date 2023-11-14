@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FileUploadService } from '../file-upload/file-upload.service';
 import { dummyRes } from './res.constant';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-show-result',
@@ -9,36 +10,26 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./show-result.component.css'],
 })
 export class ShowResultComponent implements OnInit {
-  // result = dummyRes;
+  result = dummyRes;
 
   selectedFile!: File;
 
   constructor(
     private fileUploadService: FileUploadService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) {
     this.fileUploadService.result.subscribe((res) => {
-      console.log(res);
+      // this.result = res;
     });
   }
 
   ngOnInit(): void {}
-  onFileChange(event: any): void {
-    this.selectedFile = event.target.files[0];
-  }
-  uploadFile(): void {
-    const formData = new FormData();
-    formData.append('file', this.selectedFile);
 
-    this.http
-      .post('https://plant.id/api/v3/identification', formData, {
-        headers: {
-          'Api-Key': 'hYb6s0zKmn3dmfcrRFdi7enOCvIA842ipmSL3pYqtPTnzHlJ3i',
-        },
-      })
-      .subscribe((response) => {
-        console.log('Plant.id API Response:', response);
-        // Handle the response here
-      });
+  roundProbability(x: number) {
+    return x.toFixed(2);
+  }
+  routetofiles() {
+    this.router.navigate(['/file']);
   }
 }

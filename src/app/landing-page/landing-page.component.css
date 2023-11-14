@@ -4,21 +4,18 @@
     width: 99vw;
     height: 98vh;
     display: flex;
-        background-image: url('../../assets/landing-back-2 1.jpg')
+    background-image: url('../../assets/landing-back-2 1.jpg')
 
 }
 
 .section-1 {
     width: 50%;
     min-height: 100%;
-
-    /* background-color: #001524; */
 }
 
 .section-2 {
     width: 50%;
     min-height: 100%;
-    /* background-image: url('../../assets/landing-back-1.jpg') */
     
 }
 
@@ -32,14 +29,12 @@
 }
 .sub-title{
     font-size: 20px;
-    /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
     color: #fff;
     position: relative;
     top: 19%;
     left:31%;
 }
 .landing-img{
-    /* max-width: 90%; */
     max-height: 100%;
 }
 .start {

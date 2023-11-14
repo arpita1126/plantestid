@@ -12,6 +12,7 @@ import { FileUploadService } from './file-upload.service';
 import { Router } from '@angular/router';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 import { MessageService } from 'primeng/api';
+import { envKey } from 'src/environments/environment';
 
 @Component({
   selector: 'app-file-upload',
@@ -67,14 +68,15 @@ export class FileUploadComponent implements OnInit {
     this.http
       .post('https://plant.id/api/v3/identification', formData, {
         headers: {
-          'Api-Key': 'hYb6s0zKmn3dmfcrRFdi7enOCvIA842ipmSL3pYqtPTnzHlJ3i',
+          'Api-Key': envKey,
         },
       })
       .subscribe((response: any) => {
-        console.log('Plant.id API Response:', response);
-        if (response) {
+        const result = JSON.parse(JSON.stringify(response));
+
+        if (result) {
           this.router.navigate(['/result']);
-          this.fileUploadService.result.next(response);
+          this.fileUploadService.result.next(result);
         } else {
           this.messageService.add({
             severity: 'success',
@@ -89,13 +91,12 @@ export class FileUploadComponent implements OnInit {
     this.http
       .get('https://plant.id/api/v3/usage_info', {
         headers: {
-          'Api-Key': 'hYb6s0zKmn3dmfcrRFdi7enOCvIA842ipmSL3pYqtPTnzHlJ3i',
+          'Api-Key': envKey,
         },
       })
-      .subscribe((res) => {
+      .subscribe((res: any) => {
+        const result = JSON.parse(JSON.stringify(res));
         this.visible = true;
-        console.log(res.credit_limits.total);
-
         this.credits = [
           {
             Total: res.credit_limits.total,
