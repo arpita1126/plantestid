@@ -5,9 +5,11 @@ import { ShowResultComponent } from './show-result/show-result.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: LandingPageComponent },
   { path: 'file', component: FileUploadComponent },
   { path: 'result', component: ShowResultComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

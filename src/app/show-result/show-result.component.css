@@ -3,6 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 .searched-img{
     height: 20rem;
@@ -37,9 +38,6 @@ h1{
     overflow-y: auto;
     overflow-x: hidden;
 }
-
-
-
  button {
     margin: 0;
     color: #fff;

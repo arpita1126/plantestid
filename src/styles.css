@@ -5,8 +5,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .cred {
-  
-  .p-dialog {
+    .p-dialog{
       width: 29vw;
       background-color: #16a085;
       border-radius: 8px;
