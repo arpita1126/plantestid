@@ -38,19 +38,6 @@ export class FileUploadComponent implements OnInit {
     });
   }
 
-  // onFileChange(event: any): void {
-  //   this.selectedFile = event.target.files[0];
-  //   this.uploadForm.get('file')?.setValue(this.selectedFile);
-  // }
-
-  // uploadFile() {
-  //   let res: any = this.fileUploadService.uploadForm(this.selectedFile);
-  //   // this.router.navigate(['/result']);
-  //   this.fileUploadService.result.next(res);
-  // }
-  // creditRemaning() {
-  //   this.fileUploadService.getCreditsInfo();
-  // }
   isFormValid() {
     return (
       this.uploadForm.valid &&
